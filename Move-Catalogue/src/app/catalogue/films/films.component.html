@@ -1,0 +1,11 @@
+<div class="films">
+    <ul class="films-list">
+        <app-film *ngFor="let film of library" [film]="film"></app-film>
+    </ul>
+</div>
+<div class="films-btns">
+    <button id="prevBtn" (click)="loadLessFilms()">Previous</button>
+    <button (click)="loadMoreFilms()">Next</button>
+</div>
+
+

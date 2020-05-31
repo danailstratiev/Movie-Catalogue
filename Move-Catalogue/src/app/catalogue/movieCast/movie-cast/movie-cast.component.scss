@@ -1,0 +1,48 @@
+.current-film{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.current-film div{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-film div img{
+    width: 100%;
+    margin: 0 auto;
+    max-height: 10rem;
+}
+
+.current-film h3{
+    margin-top: 1rem ;
+}
+
+.current-film-desctiption{
+    margin: auto;
+    text-align: center;
+}
+
+.cast-table{
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.cast-table tr:nth-child(even) {
+    background-color: #002266;
+}
+.cast-table tr:nth-child(odd) {
+    background-color: #234790;
+}
+
+.cast-table td{
+    text-align: center;
+    padding-top: 0.2rem;
+}
+
+.table-img img{
+    max-width: 2rem;
+    max-height: 4rem;
+}

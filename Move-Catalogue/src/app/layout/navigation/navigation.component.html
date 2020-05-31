@@ -1,0 +1,26 @@
+<header class="site-header">
+    <div id="burgerBtn" (click)="openNav()"></div>        
+
+    <h1 class="site-title">
+        <a  [routerLink]="['/films']"><i class="fas fa-video"></i></a>
+        <a id="app-title" [routerLink]="['/films']">Movie Catalogue</a>
+    </h1>
+    <nav class="site-nav" id="mySidenav">
+        <ul>
+            <li><i class="fas fa-home"></i><a href="#">Home</a></li>
+            <li *ngIf="userId"><i class="fas fa-info-circle"></i><a [routerLink]="['/favourites/:' + this.userId]">Favourites</a></li>
+            <li><i class="fas fa-film"></i><a  [routerLink]="['/films']">Movies</a></li>
+            <li class="accounts" id="myAccount" >
+                <div *ngIf="!userId">
+                    <a  [routerLink]="['/signin']">Sign In</a>
+                    <a  [routerLink]="['/signup']">Sign Up</a>
+                </div>
+            </li>
+            <li id="signOut" *ngIf="userId">
+                <a (click)="logout()" [routerLink]="['/films']">Sign Out</a>
+            </li>
+        </ul>
+        <a id="closeButton" class="closebtn" (click)="closeNav()">&times;</a>
+    </nav>
+</header>
+

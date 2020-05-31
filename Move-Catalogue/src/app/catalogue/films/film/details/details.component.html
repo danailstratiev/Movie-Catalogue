@@ -1,0 +1,77 @@
+<div class="wrapper">
+<section class="overview">
+    <div class="overview-img">
+        <img [src]="this.baseUrl + this.largePoster + this.selectedFilm?.backdrop_path" 
+        onerror="this.onerror=null;this.src='https://library.kissclipart.com/20181001/wbw/kissclipart-gsmnet-ro-clipart-computer-icons-user-avatar-4898c5072537d6e2.png';"/>
+    </div>
+    <div class="overview-desctiption">
+        <h2>{{selectedFilm?.title}}</h2>
+        <p>Release date: {{selectedFilm?.release_date | date:"MM/dd/yyyy"}}</p>
+        <p>Genres: {{this.genres}}</p>
+        <p>Runtime: {{this.runTimeHours}}h {{selectedFilm?.runtime%60}}min.</p>
+        <p>Rating: {{selectedFilm?.vote_average*10}}%</p>
+        <p>Tagline: {{selectedFilm?.tagline}}</p>
+        <p>overview: {{selectedFilm?.overview}}</p>
+        <p>personalNote: {{selectedFilm?.personalNote}}</p>
+        <div *ngIf="userId" class="overview-buttons">
+            <button (click)="addToFavourites(this.userId, this.selectedFilm)" >Add to Favourites</button>
+            <button (click)="removeFromFavourites(this.userId, this.selectedFilm)">Remove from Favourites</button>
+            <button (click)="openModal()">Add/Edit personal note</button>
+        </div>        
+    </div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <form #noteForm="ngForm" (ngSubmit)="submitNoteForm(this.userId, this.selectedFilm, filmNote.value)">
+            <label>Note</label>
+            <textarea #filmNote="ngModel" name="filmNote" ngModel id="filmNote"></textarea>
+            <button>Save notes</button>
+          </form>
+        </div>
+      
+    </div>
+</section>
+<section class="top-cast">
+    <h3>Top Cast</h3>
+    <ul class="topCast-list">
+        <li *ngFor="let cast of filmCast">
+           <p class="actor"><img [src]="this.baseUrl + this.profileParams + cast?.profile_path" alt="profile"
+            onerror="this.onerror=null;this.src='https://library.kissclipart.com/20181001/wbw/kissclipart-gsmnet-ro-clipart-computer-icons-user-avatar-4898c5072537d6e2.png';"
+            /></p>
+           <p>{{cast?.name}}</p> 
+           <p>{{cast?.character}}</p> 
+        </li>
+    </ul>
+    <button  [routerLink]="['../../../../movie-cast', selectedFilm?.id]">See more</button>
+</section>
+<section class="reviews" *ngIf="this.filmReviews !== undefined && this.filmReviews.length>0">
+    <h3>Reviews</h3>
+    <ul >
+        <li *ngFor="let review of this.filmReviews">
+           <p>
+            {{review?.author}}
+           </p>
+           <p>
+            {{review?.content}} 
+           </p>
+        </li>
+    </ul>
+    <button  [routerLink]="['../../../../movie-reviews', selectedFilm?.id]">Read all</button>
+</section>
+<section class="recommendations">
+    <h3>Recommendations</h3>
+    <ul>
+        <li class="recommendation" *ngFor="let recommendation of recommendations" >
+            <div  *ngIf="recommendation && recommendation.backdrop_path">
+                <img [src]="this.baseUrl + this.smallPosterSize + recommendation.backdrop_path" 
+                onerror="this.onerror=null;this.src='https://library.kissclipart.com/20181001/wbw/kissclipart-gsmnet-ro-clipart-computer-icons-user-avatar-4898c5072537d6e2.png';"
+                />
+                <h4>{{recommendation?.title}}</h4>
+                <p>{{recommendation?.release_date | date:"MM/dd/yyyy"}}</p>
+                <p>Rating: {{recommendation?.vote_average*10}}%</p>
+            </div>
+        </li>
+    </ul>
+</section>
+</div>

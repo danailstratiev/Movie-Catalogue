@@ -1,0 +1,18 @@
+<section class="current-film">
+    <div >
+        <img [src]="this.baseUrl + this.largePoster + selectedFilm?.backdrop_path" />
+    </div>
+    <div class="current-film-desctiption">
+        <h2>{{selectedFilm.title}}</h2>
+        <p>Release date: {{selectedFilm?.release_date | date:"MM/dd/yyyy"}}</p> 
+    </div>
+</section>
+<section class="current-reviews">
+    <h3>Reviews</h3>
+    <ul >
+        <li *ngFor="let review of this.filmReviews">
+           <p>{{review?.author}}</p> 
+           <p>{{review?.content}}</p> 
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,15 @@
+.current-reviews{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.current-reviews h3{
+    margin-top: 1rem;
+}
+
+.current-reviews ul li{
+    margin: 1rem auto;
+    max-height: 15rem;
+    word-wrap: break-word;
+    overflow-y: auto;
+}

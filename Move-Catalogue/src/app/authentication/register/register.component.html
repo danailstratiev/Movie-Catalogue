@@ -1,0 +1,41 @@
+<form class="login-form" #registerForm="ngForm" (ngSubmit)="handleSubmit(registerForm.value)" >    
+    <fieldset>
+        <div class="legendary">
+            <legend>Sign Up</legend>  
+        </div>
+    <div class="usernameDiv">
+        <p>
+            <label for="email">Email</label>
+        </p>
+        <div class="myusername">
+            <div>       
+                <i class="fas fa-user"></i>          
+                <input #emailInput="ngModel" class="form-control ng-touched ng-invalid" type="text" ngModel name="email" id="email"
+                [pattern]="emailRegex" required>
+            </div>
+            <p class="error-msg" *ngIf="emailInput.errors?.pattern">Invalid email format</p>
+        </div>
+    </div>
+    <div #passwordsGroup="ngModelGroup" ngModelGroup="passwords" class="passwordDiv" appPasswordMatch>
+        <p>
+            <label for="password">Password</label>
+        </p>
+        <div class="mypassword">
+            <div class="pass-div">
+                <i class="fas fa-key"></i>
+                <input ngModel class="form-control ng-touched ng-invalid" required minlength="6" type="password" name="password" id="password" required> 
+            </div>
+            <div class="pass-div">
+                <i class="fas fa-key"></i>
+                <input ngModel class="form-control ng-touched ng-invalid"  required minlength="6" type="password" name="rePassword" id="rePassword" required> 
+            </div> 
+            <p class="error-msg" *ngIf="passwordsGroup.touched && passwordsGroup.invalid">Passwords dont match!</p>
+        </div>               
+    </div>
+    <div class="form-btns">
+        <p class="login">
+            <button  [disabled]="registerForm.invalid">Sign Up</button>
+        </p>       
+    </div>    
+    </fieldset>
+</form>

@@ -1,0 +1,22 @@
+.movie-box{
+    margin: 0 auto;
+    padding: 1rem;
+    width: 14rem;
+    min-height: 15rem;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.movie-box h4{
+    word-wrap: break-word;
+}
+
+.movie-box img{
+    height: 8rem;
+    width: 100%;
+}
+
+app-film{
+    width: 20%;
+}

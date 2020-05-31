@@ -1,0 +1,21 @@
+<section class="current-film">
+    <div >
+        <img [src]="this.baseUrl + this.smallPosterSize + this.selectedFilm?.backdrop_path" />
+    </div>
+    <div class="current-film-desctiption">
+        <h2>{{this.selectedFilm?.title}}</h2>
+        <p>Release date: {{this.selectedFilm?.release_date | date:"MM/dd/yyyy"}}</p> 
+    </div>
+</section>
+<section class="current-film">
+    <h3>Cast Members</h3>
+</section>
+<table class="cast-table">
+    <tr *ngFor="let cast of this.fullCast">
+        <td class="table-img"><img  [src]="this.baseUrl + this.smallProfileSize + cast?.profile_path" alt="profile"
+            onerror="this.onerror=null;this.src='https://library.kissclipart.com/20181001/wbw/kissclipart-gsmnet-ro-clipart-computer-icons-user-avatar-4898c5072537d6e2.png';"
+            /></td>
+        <td>{{cast?.name}}</td>
+        <td>{{cast?.character}}</td>
+    </tr>
+</table>

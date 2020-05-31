@@ -1,0 +1,13 @@
+<li class="movie-box" *ngIf="film && film.backdrop_path">
+    <div>
+        <img [src]="this.baseUrl + this.smallPosterSize + film.backdrop_path" />
+    </div>
+    <h4>{{film.original_title}}</h4>
+    <p>{{film.release_date | date:"MM/dd/yyyy"}}</p>
+    <p>Rating: {{film.vote_average*10}}%</p>
+    <a class="button" style="color: aliceblue;" routerLinkActive="active" [routerLink]="['film/details/' + film.id]"
+    >
+    See More
+    </a>
+</li>   
+

@@ -1,0 +1,101 @@
+fieldset{
+    overflow: hidden;
+}
+
+
+.login-form{
+    width: 30%;
+    margin: 0 auto;
+    background: #111E47;
+    border-radius: 0.3rem;
+}
+
+form label{
+    display: block;
+
+    font-weight: bold;
+}
+form input[type="password"]{
+    border: none;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"]{
+    border: none;
+    padding: 0.5rem ;
+}
+form input[type="password"]:focus{
+    border: none;
+}
+
+.mypassword div,
+.myusername div{
+    background: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.mypassword div{
+    margin: 1rem auto;
+}
+
+
+.myusername:focus,
+.mypassword:focus{
+    border: 2px solid blue;
+}
+
+form input {
+    width: 85%;
+}
+    
+fieldset{
+    display: block;
+    padding: 2rem;
+    overflow: hidden;
+    border: none; 
+}
+
+fieldset p{
+    padding: 0.2rem;
+}
+
+fieldset button {
+    width: 3rem;
+}
+
+.error-msg{
+    color: red;
+}
+
+input.ng-invalid{
+    border-color: red;
+}
+
+
+input.ng-invalid{
+    border-color: blue;
+}
+
+.login-form i {
+    color: #111E47;
+    padding-right: 0.5rem;
+}
+
+.form-btns{
+    display: flex;
+    justify-content: center;
+}
+
+.form-btns button{
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+@media screen and (max-width: 768px){
+    form{
+        width: 60%;
+    }
+}
